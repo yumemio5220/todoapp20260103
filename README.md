@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 予定管理アプリ
 
-## Getting Started
+Next.js + TypeScript + Tailwind CSSで作成されたシンプルなTODO管理アプリケーションです。
 
-First, run the development server:
+## 機能
+
+- ✅ タスクの追加・編集・削除
+- ✅ 完了/未完了の切り替え
+- ✅ カテゴリによるタスク分類
+- ✅ 期日の設定
+- ✅ フィルタリング（すべて・未完了・完了済み）
+- ✅ カテゴリフィルタ
+- ✅ ローカルストレージによるデータ永続化
+- ✅ レスポンシブデザイン（スマホ・タブレット対応）
+
+## 技術スタック
+
+- **フレームワーク**: Next.js 16 (App Router)
+- **言語**: TypeScript
+- **スタイリング**: Tailwind CSS
+- **状態管理**: React Hooks
+- **データ保存**: LocalStorage
+
+## 起動方法
+
+### 1. 依存関係のインストール
+
+```bash
+npm install
+```
+
+### 2. 開発サーバーの起動
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. ブラウザでアクセス
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+ブラウザで [http://localhost:3000](http://localhost:3000) を開いてアプリを使用できます。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ビルド
 
-## Learn More
+本番環境用にビルドする場合：
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## プロジェクト構成
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+todo-app/
+├── app/
+│   ├── page.tsx          # メインページ（TODOアプリのUI）
+│   ├── layout.tsx        # レイアウトコンポーネント
+│   └── globals.css       # グローバルスタイル
+├── types/
+│   └── todo.ts           # TODO型定義
+├── hooks/
+│   └── useLocalStorage.ts # ローカルストレージ用カスタムフック
+└── public/               # 静的ファイル
+```
 
-## Deploy on Vercel
+## 使い方
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **タスクの追加**: 入力欄にタスク名を入力し、必要に応じてカテゴリと期日を設定して「追加」ボタンをクリック
+2. **タスクの完了**: チェックボックスをクリックして完了/未完了を切り替え
+3. **タスクの編集**: 「編集」ボタンをクリックしてタスク名や期日を変更
+4. **タスクの削除**: 「削除」ボタンをクリック
+5. **フィルタリング**: 上部のボタンで表示するタスクを絞り込み
+6. **カテゴリフィルタ**: カテゴリボタンで特定のカテゴリのタスクのみ表示
